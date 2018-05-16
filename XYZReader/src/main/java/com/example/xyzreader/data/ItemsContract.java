@@ -17,8 +17,8 @@ public class ItemsContract {
 		String AUTHOR = "author";
 		/** Type: TEXT NOT NULL */
 		String BODY = "body";
-        /** Type: TEXT NOT NULL */
-        String THUMB_URL = "thumb_url";
+		/** Type: TEXT NOT NULL */
+		String THUMB_URL = "thumb_url";
 		/** Type: TEXT NOT NULL */
 		String PHOTO_URL = "photo_url";
 		/** Type: REAL NOT NULL DEFAULT 1.5 */
@@ -31,7 +31,7 @@ public class ItemsContract {
 		public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.com.example.xyzreader.items";
 		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.com.example.xyzreader.items";
 
-        public static final String DEFAULT_SORT = PUBLISHED_DATE + " DESC";
+		public static final String DEFAULT_SORT = PUBLISHED_DATE + " DESC";
 
 		/** Matches: /items/ */
 		public static Uri buildDirUri() {
@@ -43,10 +43,10 @@ public class ItemsContract {
 			return BASE_URI.buildUpon().appendPath("items").appendPath(Long.toString(_id)).build();
 		}
 
-        /** Read item ID item detail URI. */
-        public static long getItemId(Uri itemUri) {
-            return Long.parseLong(itemUri.getPathSegments().get(1));
-        }
+		/** Read item ID item detail URI. */
+		public static long getItemId(Uri itemUri) {
+			return Long.parseLong(itemUri.getPathSegments().get(1));
+		}
 	}
 
 	private ItemsContract() {

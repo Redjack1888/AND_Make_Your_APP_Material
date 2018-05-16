@@ -14,12 +14,10 @@
  * limitations under the License.
  */
 
-package com.example.xyzreader.ui;
+package com.example.xyzreader.ui.helper;
 
 import android.content.Context;
-import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.ScrollView;
 
 /**

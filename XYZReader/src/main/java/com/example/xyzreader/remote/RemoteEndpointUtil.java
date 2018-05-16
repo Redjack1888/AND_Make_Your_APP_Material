@@ -8,6 +8,7 @@ import org.json.JSONTokener;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -31,11 +32,11 @@ public class RemoteEndpointUtil {
         // Parse JSON
         try {
             JSONTokener tokener = new JSONTokener(itemsJson);
-            Object val = tokener.nextValue();
-            if (!(val instanceof JSONArray)) {
+            Object value = tokener.nextValue();
+            if (!(value instanceof JSONArray)) {
                 throw new JSONException("Expected JSONArray");
             }
-            return (JSONArray) val;
+            return (JSONArray) value;
         } catch (JSONException e) {
             Log.e(TAG, "Error parsing items JSON", e);
         }

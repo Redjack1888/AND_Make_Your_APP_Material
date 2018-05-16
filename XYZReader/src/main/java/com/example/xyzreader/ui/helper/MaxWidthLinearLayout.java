@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 
-package com.example.xyzreader.ui;
+package com.example.xyzreader.ui.helper;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 

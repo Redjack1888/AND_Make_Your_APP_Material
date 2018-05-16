@@ -16,10 +16,29 @@
 -->
 
 <resources>
-    <color name="photo_placeholder">#ccc</color>
 
-    <color name="theme_primary">#04561A</color>
-    <color name="theme_primary_dark">#04561A</color>
-    <color name="theme_accent">#04561A</color>
-    <color name="ltgray">#ffe0e0e0</color>
+    <!-- Theme Colors -->
+    <color name="image_placeholder">#CCCCCC</color>
+    <color name="theme_primary">#6002ee</color>
+    <color name="theme_primary_dark">#0000ba</color>
+    <color name="theme_primary_light">#9c47ff</color>
+    <color name="theme_secondary">#e040fb</color>
+    <color name="theme_secondary_dark">#aa00c7</color>
+    <color name="theme_secondary_light">#ff79ff</color>
+    <color name="theme_primary_text">#000000</color>
+    <color name="theme_secondary_text">#FFFFFF</color>
+    <color name="theme_black_alpha">#4D000000</color>
+    <color name="theme_accent">@color/theme_secondary</color>
+
+    <!-- Material Palette Colors-->
+    <color name="grey_50">#FAFAFA</color>
+    <color name="grey_100">#F5F5F5</color>
+    <color name="grey_200">#EEEEEE</color>
+    <color name="grey_300">#E0E0E0</color>
+    <color name="grey_400">#BDBDBD</color>
+    <color name="grey_500">#9E9E9E</color>
+    <color name="grey_600">#757575</color>
+    <color name="grey_700">#616161</color>
+    <color name="grey_800">#424242</color>
+
 </resources>

@@ -1,11 +1,39 @@
 <resources>
-    <!-- detail -->
-    <dimen name="detail_title_text_size">32sp</dimen>
-    <dimen name="detail_body_text_size">22sp</dimen>
-    <item name="detail_body_line_spacing_multiplier" format="float" type="fraction">1.25</item>
+    <!-- Common Dimensions -->
+    <dimen name="dimen_4dp">4dp</dimen>
+    <dimen name="dimen_6dp">6dp</dimen>
+    <dimen name="dimen_8dp">8dp</dimen>
+    <dimen name="dimen_16dp">16dp</dimen>
+    <dimen name="dimen_24dp">24dp</dimen>
 
-    <dimen name="fab_elevation">2dp</dimen>
-    <dimen name="fab_press_translation_z">6dp</dimen>
-    <dimen name="fab_margin">24dp</dimen>
+    <!-- Specific Dimensions -->
+    <dimen name="fab_elevation">@dimen/dimen_6dp</dimen>
+    <dimen name="fab_press_translation_z">12dp</dimen>
+    <dimen name="fab_margin">@dimen/dimen_24dp</dimen>
+    <dimen name="appbar_expanded">280dp</dimen>
+    <item format="float" name="detail_line_spacing" type="fraction">1.15</item>
+    <dimen name="cardView_default_elevation">2dp</dimen>
+
+    <!-- Font Sizes -->
+    <!--<dimen name="text_size_small">15sp</dimen>-->
+    <!--<dimen name="text_size_medium">16sp</dimen>-->
+    <!--<dimen name="text_size_large">18sp</dimen>-->
+    <!--<dimen name="text_size_xlarge">24sp</dimen>-->
+
+    <dimen name="text_size_H1">96sp</dimen>
+    <dimen name="text_size_H2">60sp</dimen>
+    <dimen name="text_size_H3">48sp</dimen>
+    <dimen name="text_size_H4">34sp</dimen>
+    <dimen name="text_size_H5">24sp</dimen>
+    <dimen name="text_size_H6">20sp</dimen>
+    <dimen name="text_size_SubTitle1">16sp</dimen>
+    <dimen name="text_size_SubTitle2">14sp</dimen>
+    <dimen name="text_size_Body1">16sp</dimen>
+    <dimen name="text_size_Body2">14sp</dimen>
+    <dimen name="text_size_Button">14sp</dimen>
+    <dimen name="text_size_Caption">12sp</dimen>
+    <dimen name="text_size_Overlay">10sp</dimen>
+
+
 
 </resources>

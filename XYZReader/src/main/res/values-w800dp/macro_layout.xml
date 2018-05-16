@@ -1,9 +1,9 @@
 <resources>
-    <!-- list -->
-    <dimen name="list_side_margin">64dp</dimen>
-    <dimen name="list_toolbar_side_margin">52dp</dimen> <!-- minus 64 - 12 -->
-    <integer name="list_column_count">3</integer>
-
     <!-- detail -->
-    <dimen name="detail_card_max_width">704dp</dimen>
+    <dimen name="detail_photo_height">384dp</dimen>
+    <dimen name="detail_card_top_margin">384dp</dimen>
+    <dimen name="detail_inner_horizontal_margin">64dp</dimen>
+    <dimen name="detail_meta_bar_vertical_padding">32dp</dimen>
+    <dimen name="detail_meta_bar_title_bottom_padding">8dp</dimen>
+    <dimen name="detail_body_bottom_margin">96dp</dimen>
 </resources>
