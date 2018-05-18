@@ -15,10 +15,6 @@
     <dimen name="cardView_default_elevation">2dp</dimen>
 
     <!-- Font Sizes -->
-    <!--<dimen name="text_size_small">15sp</dimen>-->
-    <!--<dimen name="text_size_medium">16sp</dimen>-->
-    <!--<dimen name="text_size_large">18sp</dimen>-->
-    <!--<dimen name="text_size_xlarge">24sp</dimen>-->
 
     <dimen name="text_size_H1">96sp</dimen>
     <dimen name="text_size_H2">60sp</dimen>
@@ -33,7 +29,5 @@
     <dimen name="text_size_Button">14sp</dimen>
     <dimen name="text_size_Caption">12sp</dimen>
     <dimen name="text_size_Overlay">10sp</dimen>
-
-
 
 </resources>

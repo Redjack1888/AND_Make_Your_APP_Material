@@ -81,7 +81,7 @@
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_share_article"
         style="@style/FABShareArticle"
-        android:src="@drawable/ic_share"
+        android:src="@drawable/share_variant"
         app:elevation="@dimen/fab_elevation"
         app:fabSize="normal"
         app:layout_anchor="@id/appbar_layout"

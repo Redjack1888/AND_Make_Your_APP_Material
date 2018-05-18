@@ -3,8 +3,6 @@ package com.example.xyzreader.ui.fragments;
 
 import android.content.Context;
 
-import android.graphics.Typeface;
-
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
