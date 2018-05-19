@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -8,7 +7,7 @@
     <TextView
         android:id="@+id/text_view_article"
         style="@style/TextViewArticleBody"
-        android:fontFamily="@font/roboto_light"
+        android:textAppearance="@style/text_style_Body_1"
         tools:text="@string/app_name" />
 
 </android.support.v4.widget.NestedScrollView>

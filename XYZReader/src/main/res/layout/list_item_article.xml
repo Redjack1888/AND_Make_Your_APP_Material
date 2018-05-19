@@ -18,13 +18,13 @@
         <TextView
             android:id="@+id/article_author"
             style="@style/ArticleListItem.Author"
-            android:fontFamily="@font/roboto_regular"
+            android:textAppearance="@style/text_style_Overlay"
             tools:text="@string/placeholder_author" />
 
         <TextView
             android:id="@+id/article_title"
             style="@style/ArticleListItem.Title"
-            android:fontFamily="@font/roboto_regular"
+            android:textAppearance="@style/text_style_H5"
             tools:text="@string/placeholder_title" />
 
         <TextView
