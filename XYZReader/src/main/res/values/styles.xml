@@ -163,7 +163,7 @@
     <!--TEXT STYLES-->
 
     <style name="text_style_Body_1">
-        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:textSize">@dimen/text_size_Body1</item>
     </style>
 
