@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -240,6 +241,7 @@ public class ArticleListActivity extends AppCompatActivity implements
         TextView textviewDate;
         @BindView(R.id.article_author)
         TextView textviewAuthor;
+
 
         public ViewHolder(View view) {
             super(view);

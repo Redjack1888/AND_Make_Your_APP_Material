@@ -8,6 +8,7 @@
     <TextView
         android:id="@+id/text_view_article"
         style="@style/TextViewArticleBody"
-        tools:text="@string/app_name"/>
+        android:fontFamily="@font/roboto_light"
+        tools:text="@string/app_name" />
 
 </android.support.v4.widget.NestedScrollView>

@@ -36,11 +36,13 @@
 
                     <TextView
                         android:id="@+id/textView_title"
-                        style="@style/AppbarTitle"/>
+                        style="@style/AppbarTitle"
+                        android:fontFamily="@font/roboto_regular" />
 
                     <TextView
                         android:id="@+id/textView_subtitle"
-                        style="@style/AppbarSubtitle" />
+                        style="@style/AppbarSubtitle"
+                        android:fontFamily="@font/roboto_regular" />
                 </LinearLayout>
 
             </FrameLayout>
