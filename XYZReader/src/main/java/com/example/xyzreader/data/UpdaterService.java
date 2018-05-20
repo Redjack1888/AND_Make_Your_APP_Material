@@ -19,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class UpdaterService extends IntentService {
     private static final String TAG = "UpdaterService";
@@ -37,7 +38,7 @@ public class UpdaterService extends IntentService {
         Time time = new Time();
 
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-        NetworkInfo ni = connectivityManager.getActiveNetworkInfo();
+        NetworkInfo ni = Objects.requireNonNull(connectivityManager).getActiveNetworkInfo();
         if (ni == null || !ni.isConnected()) {
             Log.w(TAG, "Not online, not refreshing.");
             return;
@@ -47,12 +48,12 @@ public class UpdaterService extends IntentService {
                 new Intent(BROADCAST_ACTION_STATE_CHANGE).putExtra(EXTRA_REFRESHING, true));
 
         // Don't even inspect the intent, we only do one thing, and that's fetch content.
-        ArrayList<ContentProviderOperation> cpo = new ArrayList<ContentProviderOperation>();
+        ArrayList<ContentProviderOperation> contentProviderOperations = new ArrayList<>();
 
         Uri dirUri = ItemsContract.Items.buildDirUri();
 
         // Delete all items
-        cpo.add(ContentProviderOperation.newDelete(dirUri).build());
+        contentProviderOperations.add(ContentProviderOperation.newDelete(dirUri).build());
 
         try {
             JSONArray array = RemoteEndpointUtil.fetchJsonArray();
@@ -71,10 +72,10 @@ public class UpdaterService extends IntentService {
                 values.put(ItemsContract.Items.PHOTO_URL, object.getString("photo" ));
                 values.put(ItemsContract.Items.ASPECT_RATIO, object.getString("aspect_ratio" ));
                 values.put(ItemsContract.Items.PUBLISHED_DATE, object.getString("published_date"));
-                cpo.add(ContentProviderOperation.newInsert(dirUri).withValues(values).build());
+                contentProviderOperations.add(ContentProviderOperation.newInsert(dirUri).withValues(values).build());
             }
 
-            getContentResolver().applyBatch(ItemsContract.CONTENT_AUTHORITY, cpo);
+            getContentResolver().applyBatch(ItemsContract.CONTENT_AUTHORITY, contentProviderOperations);
 
         } catch (JSONException | RemoteException | OperationApplicationException e) {
             Log.e(TAG, "Error updating content.", e);

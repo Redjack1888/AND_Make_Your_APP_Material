@@ -1,8 +1,6 @@
 package com.example.xyzreader.ui.fragments;
 
 
-import android.content.Context;
-
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.xyzreader.R;
-import com.example.xyzreader.ui.activities.ArticleDetailActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,9 +23,7 @@ public class ArticleDetailFragment extends Fragment {
     private static final String TAG = ArticleDetailFragment.class.getSimpleName();
     private static final String KEY_ARTICLE_CONTENT = "article_content";
 
-    private Context mDetailFragmentContext;
     private Unbinder mUnbinder;
-    private View mRootView;
 
     @BindView(R.id.text_view_article)
     TextView mTextViewArticle;
@@ -39,12 +34,6 @@ public class ArticleDetailFragment extends Fragment {
      * fragment (e.g. upon screen orientation changes).
      */
     public ArticleDetailFragment() {
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        mDetailFragmentContext = context;
     }
 
     /**
@@ -65,20 +54,16 @@ public class ArticleDetailFragment extends Fragment {
 
         String article = "";
 
-        mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
+        View mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
         mUnbinder = ButterKnife.bind(this, mRootView);
 
         if (getArguments() != null && getArguments().containsKey(KEY_ARTICLE_CONTENT)) {
             article = getArguments().getString(KEY_ARTICLE_CONTENT);
         }
 
+        assert article != null;
         prepareArticleText(article);
         return mRootView;
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
     }
 
     /**

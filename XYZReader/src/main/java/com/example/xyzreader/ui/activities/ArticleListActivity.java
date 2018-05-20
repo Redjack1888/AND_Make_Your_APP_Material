@@ -7,9 +7,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
-import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -34,6 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
+import java.util.Objects;
 
 import butterknife.BindInt;
 import butterknife.BindView;
@@ -50,11 +51,10 @@ public class ArticleListActivity extends AppCompatActivity implements
 
     private static final String TAG = ArticleListActivity.class.toString();
 
-    public static Context sContext;
     private boolean mIsRefreshing = false;
 
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss", Locale.ENGLISH);
-    private GregorianCalendar START_OF_EPOCH = new GregorianCalendar(2, 1, 1);
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss", Locale.ENGLISH);
+    private final GregorianCalendar START_OF_EPOCH = new GregorianCalendar(2, 1, 1);
 
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
@@ -67,7 +67,7 @@ public class ArticleListActivity extends AppCompatActivity implements
     @BindInt(R.integer.list_column_count)
     int mColumnCount;
 
-    private BroadcastReceiver mRefreshingReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver mRefreshingReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (UpdaterService.BROADCAST_ACTION_STATE_CHANGE.equals(intent.getAction())) {
@@ -83,7 +83,7 @@ public class ArticleListActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_list);
 
-        sContext = this;
+        Context sContext = this;
         ButterKnife.bind(this);
 
         getLoaderManager().initLoader(0, null, this);
@@ -108,7 +108,7 @@ public class ArticleListActivity extends AppCompatActivity implements
         setSupportActionBar(mToolbar);
 
         try {
-            getSupportActionBar().setDisplayShowTitleEnabled(false);
+            Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
         } catch (NullPointerException ne) {
             Log.e(TAG, ne.getMessage());
         }
@@ -163,9 +163,9 @@ public class ArticleListActivity extends AppCompatActivity implements
      */
     private class Adapter extends RecyclerView.Adapter<ViewHolder> {
 
-        private Cursor mCursor;
+        private final Cursor mCursor;
 
-        public Adapter(Cursor cursor) {
+        Adapter(Cursor cursor) {
             mCursor = cursor;
         }
 
@@ -175,8 +175,9 @@ public class ArticleListActivity extends AppCompatActivity implements
             return mCursor.getLong(ArticleLoader.Query._ID);
         }
 
+        @NonNull
         @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View view = getLayoutInflater().inflate(R.layout.list_item_article, parent, false);
             final ViewHolder viewHolder = new ViewHolder(view);
             view.setOnClickListener(new View.OnClickListener() {
@@ -203,21 +204,21 @@ public class ArticleListActivity extends AppCompatActivity implements
         }
 
         @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             mCursor.moveToPosition(position);
 
-            holder.textviewTitle.setText(mCursor.getString(ArticleLoader.Query.TITLE));
+            holder.textViewTitle.setText(mCursor.getString(ArticleLoader.Query.TITLE));
 
             Date publishedDate = parsePublishedDate();
             if (!publishedDate.before(START_OF_EPOCH.getTime())) {
-                holder.textviewDate.setText(
+                holder.textViewDate.setText(
                         DateUtils.getRelativeTimeSpanString(
                                 publishedDate.getTime(),
                                 System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
                                 DateUtils.FORMAT_ABBREV_ALL).toString());
             }
 
-            holder.textviewAuthor.setText(mCursor.getString(ArticleLoader.Query.AUTHOR));
+            holder.textViewAuthor.setText(mCursor.getString(ArticleLoader.Query.AUTHOR));
 
             holder.thumbnailView.setImageUrl(
                     mCursor.getString(ArticleLoader.Query.THUMB_URL),
@@ -236,14 +237,14 @@ public class ArticleListActivity extends AppCompatActivity implements
         @BindView(R.id.article_image)
         DynamicHeightNetworkImageView thumbnailView;
         @BindView(R.id.article_title)
-        TextView textviewTitle;
+        TextView textViewTitle;
         @BindView(R.id.article_date)
-        TextView textviewDate;
+        TextView textViewDate;
         @BindView(R.id.article_author)
-        TextView textviewAuthor;
+        TextView textViewAuthor;
 
 
-        public ViewHolder(View view) {
+        ViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
         }

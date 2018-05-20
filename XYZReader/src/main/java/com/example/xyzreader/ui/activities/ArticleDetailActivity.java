@@ -44,7 +44,7 @@ public class ArticleDetailActivity extends AppCompatActivity implements LoaderMa
     private static final String TAG = ArticleDetailActivity.class.getSimpleName();
     public static final String KEY_ITEM_POSITION = "item_position";
 
-    final Context mContext = this;
+    private final Context mContext = this;
     private DetailPagerAdapter mDetailPagerAdapter;
     private Cursor mCursor;
     private String mArticleTitle;
@@ -68,8 +68,8 @@ public class ArticleDetailActivity extends AppCompatActivity implements LoaderMa
     @BindView(R.id.fab_share_article)
     FloatingActionButton mFabShareArticle;
 
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss", Locale.ENGLISH);
-    private GregorianCalendar START_OF_EPOCH = new GregorianCalendar(2, 1, 1);
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss", Locale.ENGLISH);
+    private final GregorianCalendar START_OF_EPOCH = new GregorianCalendar(2, 1, 1);
 
 
     @Override
@@ -102,11 +102,6 @@ public class ArticleDetailActivity extends AppCompatActivity implements LoaderMa
 
         // OnPageChangeListener on ViewPager to handle swiping viewpager to change article
         mViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
-
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-            }
 
             @Override
             public void onPageSelected(int position) {
@@ -178,7 +173,7 @@ public class ArticleDetailActivity extends AppCompatActivity implements LoaderMa
     /**
      * Method to display article details (image, title, author, date)
      */
-    public void displayArticleData() {
+    private void displayArticleData() {
         mCursor.moveToPosition(mPosition);
 
         Picasso.get()
@@ -210,9 +205,9 @@ public class ArticleDetailActivity extends AppCompatActivity implements LoaderMa
      */
     private class DetailPagerAdapter extends FragmentStatePagerAdapter {
 
-        private WeakReference<Cursor> mCursorWeakRef;
+        private final WeakReference<Cursor> mCursorWeakRef;
 
-        public DetailPagerAdapter(android.support.v4.app.FragmentManager fm, Cursor cursor) {
+        DetailPagerAdapter(android.support.v4.app.FragmentManager fm, Cursor cursor) {
             super(fm);
             mCursorWeakRef = new WeakReference<>(cursor);
         }
