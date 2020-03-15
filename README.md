@@ -1,4 +1,6 @@
 # AND Make your App Material
+![Cover](/assets/smartmockups_k7swvgu2.jpg)
+
 In this project, you will redesign an app to follow the Material Design guidelines and translate a set of static design mocks to a living and breathing app.
 
 ## Why this Project
